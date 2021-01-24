@@ -1,0 +1,23 @@
+{
+  "name": "Games_adding_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielwilson1227/Daniel-Wilson-Games-with-jquery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielwilson1227/Daniel-Wilson-Games-with-jquery/issues"
+  },
+  "homepage": "https://github.com/danielwilson1227/Daniel-Wilson-Games-with-jquery#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Daniel Wilson">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Marvel Trivia</title>
+  <link rel="stylesheet" href="css/trivia-style.css">
+  <link rel="stylesheet" href="CSS_icons/all.css">
+  <link rel="stylesheet" media="screen and (max-width: 670px)" type="text/css" href="css/trivia-mobile.css">
+  <link rel="shortcut icon" href="#" />
+</head>
+<body>
+  <header id="full-container">
+    <div id="flex-container">
+    <h1 class="mainTitle">MARVEL TRIVIA</h1>
+    <h3 id= "total-score" class='mainTitle'></h3>
+    <button id="instructionsBTN">INSTRUCTIONS</button>
+    <div id="chooseDiff">
+      <div id="diffCont">
+     <h3 id="chooseDiffText">CHOOSE A DIFFICULTY:</h3>
+    </div>
+     <div id="difficultyBTNS">
+<button class = "diffBTNS hover-On" id="easyBTN">Easy</button>
+<button class = "diffBTNS hover-On" id="mediumBTN">Medium</button>
+<button class = "diffBTNS hover-On" id="hardBTN">Hard</button>
+</div>
+</div>
+<div id="questions-container" class="trivia-container">  
+  <div class="trivia-content">
+      <div id="trivia-flex">
+      <p id="questNum"></p>
+    <p id="total-Score"></p>
+  </div>
+      <div id="question"></div>
+      <div id="choice-container">
+        <div id="flex-one">
+      <button class="answerChoice" id='userChoice1'>
+      </button>
+      <button class="answerChoice" id='userChoice2'>
+      </button>
+    </div>
+    <div id="flex-two">
+      <button class="answerChoice" id='userChoice3'>
+      </button>
+      <button class="answerChoice" id='userChoice4'>
+      </button>
+    </div>
+    </div>
+      <button id="nextBTN">NEXT</button>
+      <p id="point-Display"></p>
+      <p id="correct-Display"></p>
+      <br>
+      <div class="progress-container" style = "--width:0">PROGRESS</div>
+   </div>
+</div>
+<div id="results-container" class="trivia-container">  
+  <div class="trivia-content">
+		<h1 id='resultsHeader'>YOUR RESULTS</h1>
+		<p class="resultsText"></p>
+		<p class="resultsText"></p>
+		<p class="resultsText"></p>
+		<button class= 'hover-On' id="exit">EXIT</button>
+    </div>
+</div>
+<div id="instructions-container" class="trivia-container">
+  <div class="trivia-content">
+    <span class="close">&times;</span>
+  <p id="instructions-text"></p>
+</div>
+</div>
+<button class= 'hover-On' id='refresh' onClick="window.location.reload();">Play Again!</button>
+</div>
+</header>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+ <script src="JS_files/trivia.js"></script>
+</body>
+</html>
+
+
+
+

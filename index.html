@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Daniel Wilson">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Let's Play Hangman!</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/hangman-style.css">
+  <link rel="stylesheet" media="screen and (max-width: 754px)" type="text/css" href="css/hangman-mobile.css">
+  <link rel="stylesheet" href="CSS_icons/all.css">
+  <link rel="shortcut icon" href="#" />
+</head>
+
+<body>
+  <header id="full-container">
+    <div id="unregister-alert" class="alert alert-danger alert-dismissible d-none">
+      <button class="close" type="button" data-dismiss="alert">
+      </button>
+      User Removed!
+    </div>
+    <div id="header">
+      <div id="title-container" class="justify-content-between">
+        <div id="main-title" class="d-flex flex-column">
+  <h1 id= "title" class="mb-1">Lets Play Hangman</h1>
+  <h2 id="score"></h2>
+</div>
+  <div class="d-flex align-items-center">
+    <p id="userName" class="d-none"></p>
+    <div id="user-dropdown" class="dropdown">
+      <button id="userBTN" class="btn rounded-circle d-none" type="button" data-toggle="dropdown" style="background:url(/images/avatars/avatar-1.JPG) no-repeat center/cover">
+      </button>
+      <div class="dropdown-menu">
+
+        <button class="btn btn-primary dropdown-item hover-on" data-toggle="modal" data-target="#accountModal" data-tooltip="tooltip" title="Click for Account Info" id="accountSettings">Account</button>
+        <button id="unregisterBTN" class="btn btn-danger dropdown-item hover-on" data-tooltip="tooltip" title="Click to Unregister Account">Unregister</button>
+        
+      </div>
+  </div>
+  </div>
+</div>
+
+<div class="modal" id="accountModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body d-flex flex-column">
+        <p id="settingsName"><span>Username:</span></p>
+        <p id="settingsEmail"><span>Email:</span></p>
+        <div id="passFlex" class="d-flex mb-3">
+        <p id="settingsPass" class="mr-5"><span>Password:</span></p>
+        <br>
+        <button id="revealBTN" class="btn btn-info btn-sm" data-tooltip="tooltip" title="Click to Reveal Password">Reveal Password</button>
+      </div>
+        <button class="btn btn-danger align-self-center mb-2" id="unregisterBTN-2" data-tooltip="tooltip" title="Click to Unregister Account">Unregister</button>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+  <form id="formID">
+    <div class="input-group">
+    <input type="text" placeholder="Type letter & Press Enter" id="input" class="search d-none" maxlength="1" onkeydown="search(this)"/> 
+    <div id="error" class="d-none font-weight-bold"></div>
+  </div>
+  </form>
+</div>
+<div id="container" class="d-flex">
+  <div id="buttons" class="d-flex justify-content-center align-items-center">
+    <button class="btn btn-primary ml-3" id="instructions-btn" data-toggle="modal" data-target="#instructModal" data-tooltip="tooltip" title="Click for instructions">INSTRUCTIONS</button>
+    <div class="modal" id="instructModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">INSTRUCTIONS</h5>
+            <button class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p id="instructions-content"></p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <button class="btn btn-primary ml-3 d-none" id="hint-btn" data-toggle="modal" data-target="#hintModal" data-tooltip="tooltip" title="Click for Title Hint">HINT</button>
+    <div class="modal" id="hintModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">TITLE HINT:</h5>
+            <button class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p id="hint-content"></p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+
+    <button class="btn btn-primary ml-3 d-none" data-tooltip="tooltip" title="Click here to play again" id= "refresh" onClick="window.location.reload();">Play again</button>
+
+    <div class="dropdown">
+      <button id="catBTN" class="btn btn-primary dropdown-toggle ml-3" type="button" data-toggle="dropdown" data-tooltip="tooltip" title="Choose a Category">
+          Category
+      </button>
+      <div class="dropdown-menu">
+          <button id="tvBTN" class="dropdown-item btn hover-on">tv shows</button>
+          <button id="movieBTN" class="dropdown-item hover-on">movies</button>
+      </div>
+  </div>
+
+    <div class="dropdown">
+      <button id= "difficultyBTN" class="btn btn-primary dropdown-toggle ml-3 d-none" type="button" data-toggle="dropdown" data-tooltip="tooltip" title="Choose a difficulty">
+          Difficulty
+      </button>
+      <div class="dropdown-menu">
+          <button id="easyDiff" class="dropdown-item btn hover-on">Easy</button>
+          <button id="medDiff" class="dropdown-item hover-on">Medium</button>
+          <button id="hardDiff" class="dropdown-item hover-on">Hard</button>
+      </div>
+  </div>
+
+  <button class="btn btn-primary ml-3" id="register-btn" data-toggle="modal" data-target="#registerModal" data-tooltip="tooltip" title="Click to register">REGISTER <i class="fas fa-arrow-right"></i> </button>
+    <div class="modal" id="registerModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div id="register-alert" class="alert alert-success alert-dismissible d-none">
+              <button class="close" type="button" data-dismiss="alert">
+              </button>
+              User Account Added!
+            </div>
+            <div id="register-danger" class="alert alert-danger alert-dismissible d-none">
+              <button class="close" type="button" data-dismiss="alert">
+              </button>
+              Please choose an Avatar!
+            </div>
+            <form id="avatarForm" class="d-none">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input class="form-control" maxlength="6" type="text" id="name" placeholder="Enter name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input class="form-control" type="email" id="email" placeholder="Enter email" required>
+              <small class="form-text text-muted">Just make up an email</small>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control" type="password" id="password" placeholder="Password" minlength = "5" required>
+        </div>
+        <label>Choose your avatar</label>
+        <div id="avatars" class="form-group d-flex">
+          <label>
+          <input id="1" type="radio" name="avatar">
+<img class="avatarImg" src="/images/avatars/avatar-1.JPG" alt='picture'>
+</label>
+<label>
+  <input id="2" type="radio" name="avatar">
+<img class="avatarImg" src="/images/avatars/avatar-2.JPG" alt='picture'>
+</label>
+<label>
+  <input id="3" type="radio" name="avatar">
+<img class="avatarImg" src="/images/avatars/avatar-3.JPG" alt='picture'>
+</label>
+<label>
+  <input id="4" type="radio" name="avatar">
+<img class="avatarImg" src="/images/avatars/avatar-4.JPG" alt='picture'>
+</label>
+<label>
+  <input id="5" type="radio" name="avatar">
+<img class="avatarImg" src="/images/avatars/avatar-5.JPG" alt='picture'>
+</label>
+<label>
+  <input id="6" type="radio" name="avatar">
+<img class="avatarImg" src="/images/avatars/avatar-6.JPG" alt='picture'>
+</label>
+ </div>
+<div id="formBTNS" class="d-flex justify-content-around">
+ <input class="btn btn-success" type="submit" value="Register">
+<input class="btn btn-danger" type="reset">
+
+</div>
+</form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  <div id="hang" class="d-flex flex-column">
+  <img id="hanger" src="/images/0.jpg" alt="picture"> 
+  <div id="div1" class="text-center"></div>
+  <h3 class="h3 text-center font-weight-bold"></h3>
+  <h5 id="countdown" class="mx-auto d-block text-center"></h5>
+  <h1 class="win text-center"></h1>
+</div>
+<img id="posterImage" class="d-none mr-2" alt='' src="/images/0.jpg">
+</div>
+</header>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
+<script src="JS_files/hangman.js"></script>
+<footer>
+  <a class="d-none" href="https://www.freepik.com/free-photos-vectors/Woman">Woman vector created by studiogstock - www.freepik.com</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,8 @@
+To start the game, click on the category drop-down button and choose a category and then click on the difficulty drop-down button and choose a difficulty. The title of a tv show or film is randomly generated and the letters are hidden inside the pink solid squares. Guess letters that might be in the hidden title. Numbers, special characters nor spaces are contained in the titles. Click on the 'Hint" button to view an overview of the title. The letters incorrectly guessed are displayed below the pink squares. After 8 failed attempts you lose the game. Reveal the title before the timer runs out. After the game finishes, enjoy a poster of the title. 
+
+Win easy level +5 points
+Win medium level +10 points
+Win hard level +15 points
+Lose any level -5 points
+
+Click on "Play again" to play another hangman game or click on the "Trivia" button to play Marvel trivia.
